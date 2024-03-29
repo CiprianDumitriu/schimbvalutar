@@ -14,7 +14,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex  w-auto items-center gap-2 rounded-lg border-2 border-solid border-[#DBDEE0] p-0.5">
+      <div className="flex  w-auto items-center gap-2 rounded-lg border-2 border-solid border-[#DBDEE0] p-0.5 px-3">
         <Image alt="search" src="/vercel.svg" width={64} height={64}></Image>
         {/* Add search image */}
         <Input
