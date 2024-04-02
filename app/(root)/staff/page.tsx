@@ -1,7 +1,12 @@
 import React from "react";
 
 function MainMenu() {
-  return <div>MainMenu</div>;
+  return (
+    <div className="bg-[#FFFFFF]">
+      <h1>Calendar</h1>
+      <div></div>
+    </div>
+  );
 }
 
 export default MainMenu;
