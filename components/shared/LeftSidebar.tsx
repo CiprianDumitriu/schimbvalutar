@@ -11,13 +11,28 @@ const LeftSidebar = () => {
           className="flex items-center gap-4 px-6 py-2 hover:bg-[#F6F6F6] focus:bg-[#EAF5FF]"
         >
           <Image
+            src="/assets/icons/computer.svg"
+            alt="account"
+            width={32}
+            height={24}
+            className=""
+          />
+          <p className="font-bold">Overview</p>
+        </Link>
+      </div>
+      <div>
+        <Link
+          href="/triplua/employees"
+          className="flex items-center gap-4 px-6 py-2 hover:bg-[#F6F6F6] focus:bg-[#EAF5FF]"
+        >
+          <Image
             src="/assets/icons/clock-2.svg"
             alt="account"
             width={32}
             height={24}
             className=""
           />
-          <p className="font-bold">Shifts</p>
+          <p className="font-bold">Employees</p>
         </Link>
       </div>
       <div>
@@ -26,13 +41,28 @@ const LeftSidebar = () => {
           className="flex items-center gap-4 px-6 py-2 hover:bg-[#F6F6F6] focus:bg-[#EAF5FF]"
         >
           <Image
-            src="/assets/icons/computer.svg"
+            src="/assets/icons/clock-2.svg"
             alt="account"
             width={32}
             height={24}
             className=""
           />
-          <p className="font-bold">Overview</p>
+          <p className="font-bold">Shops</p>
+        </Link>
+      </div>
+      <div>
+        <Link
+          href="/staff"
+          className="flex items-center gap-4 px-6 py-2 hover:bg-[#F6F6F6] focus:bg-[#EAF5FF]"
+        >
+          <Image
+            src="/assets/icons/clock-2.svg"
+            alt="account"
+            width={32}
+            height={24}
+            className=""
+          />
+          <p className="font-bold">Shifts</p>
         </Link>
       </div>
     </div>
