@@ -19,3 +19,10 @@ export async function createEmployee(params: any) {
     employee.save();
   } catch (error) {}
 }
+
+// export async function getAllEmployees(params: any) {
+//   try {
+//     connectToDatabase();
+
+//   }
+// }
