@@ -1,98 +1,42 @@
-"use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
-import { Button } from "@/components/ui/button";
+import React from "react";
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { EmployeeSchema } from "@/lib/validations";
-import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
-import { createEmployee } from "@/lib/actions/employee.action";
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
-export default function Employees() {
-  // eslint-disable-next-line no-unused-vars
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const router = useRouter();
-  // eslint-disable-next-line no-unused-vars
-  const pathname = usePathname();
-
-  const form = useForm<z.infer<typeof EmployeeSchema>>({
-    resolver: zodResolver(EmployeeSchema),
-  });
-
-  async function onSubmit(values: z.infer<typeof EmployeeSchema>) {
-    setIsSubmitting(true);
-
-    try {
-      await createEmployee({
-        name: values.name,
-        firstName: values.firstName,
-        shops: values.shops,
-      });
-      router.push("/triplua/employees");
-    } catch (error) {
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
-
+const Employees = () => {
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="firstName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormDescription></FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="shops"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Shops</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormDescription></FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <main className="bg-[#FFFFFF]">
+      <h1>Bridge</h1>
+      <Table>
+        <TableCaption>A list of your all Bridge employees</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[150px]">First Name</TableHead>
+            <TableHead className="w-[150px]">Last Name</TableHead>
+            <TableHead className="w-[150px]">Workable hours</TableHead>
+            <TableHead className="w-[150px] text-center">Flexible</TableHead>
+            <TableHead className="w-[150px] text-right">
+              Exchange Shops
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell className="font-medium">INV001</TableCell>
+            <TableCell>Paid</TableCell>
+            <TableCell>Credit Card</TableCell>
+            <TableCell className="text-center">$250.00</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </main>
   );
-}
+};
+
+export default Employees;
