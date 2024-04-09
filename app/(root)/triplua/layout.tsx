@@ -8,12 +8,12 @@ export default function StaffLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="relative min-h-screen w-full bg-[#F6F6F6]">
+    <main className="relative h-auto w-full bg-[#F6F6F6]">
       <Navbar />
       <div className="flex">
         <LeftSidebar />
-        <section className="flex min-h-screen flex-col px-6 pb-6 pt-36 max-md:pb-14 sm:px-14">
-          <div className="mx-auto w-full max-w-5xl">{children}</div>
+        <section className="flex h-fit justify-between gap-20 px-6 pb-6 pt-36">
+          {children}
         </section>
       </div>
     </main>
