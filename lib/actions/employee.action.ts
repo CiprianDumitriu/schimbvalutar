@@ -7,13 +7,16 @@ export async function createEmployee(params: any) {
   try {
     connectToDatabase();
 
-    const { name, firstName, shops } = params;
+    const { name, firstName, title, workableHours, flexible } = params;
 
     // Create employee
     const employee = await Employee.create({
       name,
       firstName,
-      shops,
+      title,
+      workableHours,
+      flexible,
+      // shops,
     });
 
     Employee.findById(employee._id);
