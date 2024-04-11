@@ -9,7 +9,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getAllEmployees } from "@/lib/actions/employee.action";
-import EmployeeForm from "@/components/forms/EmployeeForm";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Employees = async () => {
   const result = await getAllEmployees({});
@@ -18,8 +19,14 @@ const Employees = async () => {
 
   return (
     <>
-      <div className="bg-[#FFFFFF]">
-        <h1>Bridge</h1>
+      <div className="flex flex-col gap-4 bg-[#FFFFFF] p-10 ">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-semibold">Bridge Exchange</h1>
+          <Link href="/triplua/employees/create-new">
+            <Button>Add Employee</Button>
+          </Link>
+        </div>
+
         <Table>
           <TableCaption>A list of your all Bridge employees</TableCaption>
           <TableHeader>
@@ -44,9 +51,6 @@ const Employees = async () => {
             ))}
           </TableBody>
         </Table>
-      </div>
-      <div className=" bg-[#FFFFFF]">
-        <EmployeeForm />
       </div>
     </>
   );

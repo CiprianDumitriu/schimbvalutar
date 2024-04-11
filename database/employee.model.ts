@@ -5,18 +5,18 @@ export interface IEmployee extends Document {
   firstName: string;
   title: string;
   shops: Schema.Types.ObjectId[];
-  workableHours: number;
+  workableHours: string;
   createdAt: Date;
-  flexible: boolean;
+  flexible: string;
 }
 
 const EmployeeSchema = new Schema({
   name: { type: String, required: true },
   firstName: { type: String, required: true },
   title: { type: String, required: true },
-  workableHours: { type: Number },
+  workableHours: { type: String },
   shops: [{ type: Schema.Types.ObjectId, ref: "Shop" }],
-  flexible: { type: Boolean, default: false },
+  flexible: { type: String },
   createdAt: { type: Date, default: Date.now },
 });
 
